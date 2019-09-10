@@ -41,9 +41,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
             <uses-feature android:name="android.hardware.location.gps" />
         </config-file>
-
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
+        </config-file>
+      
         <config-file target="res/xml/config.xml" parent="/*">
           <feature name="Geolocation">
               <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
